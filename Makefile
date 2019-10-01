@@ -69,6 +69,7 @@ ifeq ($(OS),linux)
   SGW_SUPPORT = 1
 endif
 ifeq ($(OS),android)
+LDFLAGS += -fPIE -pie
   SGW_SUPPORT = 1
 endif
 
@@ -81,7 +82,7 @@ ifeq ($(OS),android)
 # On Android Google forgot to include regex engine code for Froyo version (but also there was
 # no support in older versions for it) so we have here this missing code.
 # http://groups.google.com/group/android-ndk/browse_thread/thread/5ea6f0650f0e3fc
-CFLAGS += -D__POSIX_VISIBLE
+CFLAGS += -D__POSIX_VISIBLE -fPIE
 ANDROIDREGEX=$(REGEX_LIB)
 endif
 
@@ -529,6 +530,7 @@ watchdog_uninstall:
 
 
 build_all:	all switch libs
+build_android:	all libs
 install_all:	install install_libs
 uninstall_all:	uninstall uninstall_libs
 clean_all:	uberclean clean_libs

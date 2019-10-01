@@ -43,8 +43,8 @@
 
 # Android NDK setup
 NDK_BASE ?= /opt/android-ndk
-NDK_PLATFORM_LEVEL ?= 4
-NDK_COMPILER_VERSION ?= 4.8
+NDK_PLATFORM_LEVEL ?= 26
+NDK_COMPILER_VERSION ?= 4.9
 NDK_ABI ?= arm
 
 NDK_ARCH = $(shell uname -m)
